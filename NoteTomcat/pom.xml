@@ -14,16 +14,22 @@
     <packaging>war</packaging>
 
     <name>note-tomcat Maven Webapp</name>
-    <url>http://localhost:8080/note</url>
+    <url>http://localhost:8080/${project.name}</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>12</maven.compiler.source>
+        <maven.compiler.target>12</maven.compiler.target>
     </properties>
 
     <dependencies>
-
+        <!-- Tomcat -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>9.0.21</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -69,12 +75,11 @@
                         <server>tomcat</server>
                         <username>root</username>
                         <password>root</password>
-                        <path>/note</path>
-                        <staticContextPath>/note</staticContextPath>
+                        <path>/${project.name}</path>
                     </configuration>
                 </plugin>
-
             </plugins>
         </pluginManagement>
     </build>
+
 </project>
