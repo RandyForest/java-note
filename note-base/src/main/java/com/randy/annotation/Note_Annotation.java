@@ -1,8 +1,5 @@
 package com.randy.annotation;
 
-import com.randy.note_interface.ClassA;
-import com.randy.note_interface.InterfaceA;
-
 import java.lang.reflect.Method;
 
 /**
