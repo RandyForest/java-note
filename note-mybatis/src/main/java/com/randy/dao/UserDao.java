@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserDao {
     /**
      * 查询所有操作
-     * @return
+     * @return user 对象
      */
-   public List<User> findAll();
+    List<User> findAll();
 }

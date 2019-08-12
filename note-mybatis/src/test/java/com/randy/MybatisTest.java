@@ -1,6 +1,8 @@
 package com.randy;
 
 import com.randy.dao.UserDao;
+import com.randy.dao.UserDaoAnno;
+import com.randy.dao.impl.UserDaoImpl;
 import com.randy.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -16,7 +18,7 @@ import java.util.List;
  * Author: randy
  * Date: 2019/7/31 23:37
  */
-public class MybatisTest {
+class MybatisTest {
     /**
      * 1. 读取配置文件
      * 2. 创建SqlSessionFactory工厂
@@ -27,18 +29,58 @@ public class MybatisTest {
     @Test
     void test1() throws IOException {
         InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
-
-        SqlSessionFactoryBuilder builder=new SqlSessionFactoryBuilder();
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(in);
-
         SqlSession session = factory.openSession();
+
+        // 使用配置文件配置
         UserDao userDao = session.getMapper(UserDao.class);
+
         List<User> users = userDao.findAll();
         for (User user : users) {
-            System.out.println("ID: "+user.getId()+", Name: "+user.getUsername());
+            System.out.println("ID: " + user.getId() + ", Name: " + user.getUsername());
         }
 
         session.close();
         in.close();
     }
+
+    @Test
+    void test2() throws IOException {
+        InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory factory = builder.build(in);
+        SqlSession session = factory.openSession();
+
+        // 使用注解方式配置
+        UserDaoAnno userDao =  session.getMapper(UserDaoAnno.class);
+
+        List<User> users = userDao.findAll();
+        for (User user : users) {
+            System.out.println("ID: " + user.getId() + ", Name: " + user.getUsername());
+        }
+
+        session.close();
+        in.close();
+    }
+
+    @Test
+    void test3() throws IOException {
+        InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory factory = builder.build(in);
+        SqlSession session = factory.openSession();
+
+        // 使用实现类方式配置
+        UserDao userDao =  new UserDaoImpl(factory);
+
+        List<User> users = userDao.findAll();
+        for (User user : users) {
+            System.out.println("ID: " + user.getId() + ", Name: " + user.getUsername());
+        }
+
+        session.close();
+        in.close();
+    }
+
 }
