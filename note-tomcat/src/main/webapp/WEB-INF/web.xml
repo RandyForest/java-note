@@ -8,4 +8,37 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <!-- Context -->
+    <context-param>
+        <param-name>devDir</param-name>
+        <param-value>/target/classes</param-value>
+    </context-param>
+    <context-param>
+        <param-name>prodDir</param-name>
+        <param-value>/</param-value>
+    </context-param>
+
+    <!-- Listener -->
+    <listener>
+        <listener-class>com.randy.tomcat.lisenter.FileListener</listener-class>
+    </listener>
+
+    <!-- Servlet -->
+    <servlet>
+        <servlet-name>UploadFile</servlet-name>
+        <servlet-class>com.randy.tomcat.UploadFile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DownloadFile</servlet-name>
+        <servlet-class>com.randy.tomcat.DownloadFile</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadFile</servlet-name>
+        <url-pattern>/UploadFile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadFile</servlet-name>
+        <url-pattern>/DownloadFile</url-pattern>
+    </servlet-mapping>
 </web-app>

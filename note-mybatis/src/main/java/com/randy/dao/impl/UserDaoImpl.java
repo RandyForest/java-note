@@ -23,7 +23,6 @@ public class UserDaoImpl implements UserDao {
         SqlSession session = factory.openSession();
 
         // 传入的参数是配置文件中定义的 namespace + id
-
         return session.selectList("com.randy.dao.UserDao.findAll");
     }
 }
