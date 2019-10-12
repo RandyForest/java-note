@@ -15,6 +15,6 @@ public class UserDaoImpl implements UserDao {
         System.out.println("移除用户");
 
         // 制造一个异常
-        int i=1/0;
+        // int i=1/0;
     }
 }
