@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 用户数据访问对象实现类 -->
+    <bean id="aopUserDao" class="aop.UserDao"/>
+    <!-- 用户切面类 -->
+    <bean id="aopUserAspect" class="aop.UserAspect"/>
+    <!-- Spring的动态代理类 -->
+    <bean id="aopUserDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- 动态代理接口，如果使用CGLIB可以不用定义接口 -->
+        <!--<property name="proxyInterfaces" value="aop.UserDao"/>-->
+        <!-- 被代理的类 -->
+        <property name="target" ref="aopUserDao"/>
+        <!-- 拦截器名 -->
+        <property name="interceptorNames" value="aopUserAspect"/>
+        <!-- 代理目标是否是类/是否使用CGLIB -->
+        <property name="proxyTargetClass" value="true"/>
+    </bean>
+
+</beans>
