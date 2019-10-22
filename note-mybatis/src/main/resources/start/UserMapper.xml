@@ -48,4 +48,29 @@
     <!--    from user-->
     <!--    where name like #{name}-->
     <!--</select>-->
+
+
+    <!-- 添加用户 -->
+    <!-- value 中的值要与User类中的属性名相同 -->
+    <insert id="add" parameterType="start.User">
+        insert user (id, name, password, birthday, sex, address)
+        values (#{id}, #{name}, #{password}, #{birthday}, #{sex}, #{address})
+    </insert>
+
+    <!-- 更新用户 -->
+    <update id="update" parameterType="start.User">
+        update user
+        set name=#{name},
+            password=#{password},
+            birthday=#{birthday},
+            sex=#{sex},
+            address=#{address}
+        where id = #{id}
+    </update>
+
+    <!-- 删除用户 -->
+    <delete id="delete" parameterType="int">
+        delete from user
+        where id = ${id}
+    </delete>
 </mapper>
