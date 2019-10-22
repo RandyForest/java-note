@@ -1,4 +1,4 @@
-package jsbc;
+package jdbc;
 
 import org.springframework.jdbc.core.*;
 
@@ -33,7 +33,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int add(User user) {
         String sql = "insert into user(id,name,password,birthday,sex,address) value(?,?,?,?,?,?)";
-        Object[] objArray = new Object[]{user.getName(), user.getPassword(), user.getBirthday(), user.getSex(), user.getAddress(), user.getId()};
+        Object[] objArray = new Object[]{user.getId(), user.getName(), user.getPassword(), user.getBirthday(), user.getSex(), user.getAddress()};
         return this.jdbcTemplate.update(sql, objArray);
     }
 

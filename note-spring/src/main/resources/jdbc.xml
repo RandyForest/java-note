@@ -18,7 +18,7 @@
     </bean>
 
 
-    <bean id="userDao" class="jsbc.UserDaoImpl">
+    <bean id="jdbcUserDao" class="jdbc.UserDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 </beans>

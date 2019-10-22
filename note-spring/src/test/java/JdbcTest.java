@@ -1,20 +1,14 @@
-import jsbc.User;
-import jsbc.UserDao;
-import jsbc.UserDaoImpl;
+import jdbc.User;
+import jdbc.UserDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 /**
  * Author: randy
@@ -61,7 +55,7 @@ public class JdbcTest {
     @Test
     void test3() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./jdbc.xml");
-        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+        UserDao userDao = (UserDao) applicationContext.getBean("jdbcUserDao");
 
         User user = new User();
         user.setName("naa");
@@ -83,7 +77,7 @@ public class JdbcTest {
     @Test
     void test4() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./jdbc.xml");
-        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+        UserDao userDao = (UserDao) applicationContext.getBean("jdbcUserDao");
 
         int delete = userDao.delete(8);
         System.out.println("删除操作，改动 " + delete + " 行");
@@ -92,7 +86,7 @@ public class JdbcTest {
     @Test
     void testUpdate(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./jdbc.xml");
-        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+        UserDao userDao = (UserDao) applicationContext.getBean("jdbcUserDao");
 
         User user = new User();
         user.setId(12);
@@ -108,7 +102,7 @@ public class JdbcTest {
     @Test
     void  test5(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./jdbc.xml");
-        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+        UserDao userDao = (UserDao) applicationContext.getBean("jdbcUserDao");
 
         // 输入正确密码
         User user = userDao.check("naa", "naa");
@@ -130,7 +124,7 @@ public class JdbcTest {
     @Test
     void testQuery(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./jdbc.xml");
-        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+        UserDao userDao = (UserDao) applicationContext.getBean("jdbcUserDao");
 
         User user = userDao.query(13);
         System.out.println(user);
@@ -142,7 +136,7 @@ public class JdbcTest {
     @Test
     void testQueryAll(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./jdbc.xml");
-        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+        UserDao userDao = (UserDao) applicationContext.getBean("jdbcUserDao");
 
         List<User> users = userDao.queryAll();
         System.out.println(users);

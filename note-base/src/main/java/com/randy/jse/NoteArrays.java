@@ -9,8 +9,8 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
-public class Note_Arrays {
-    public Note_Arrays() {
+public class NoteArrays {
+    public NoteArrays() {
     }
 
     public static void main(String[] args) {

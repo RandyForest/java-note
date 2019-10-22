@@ -1,4 +1,4 @@
-package jsbc;
+package jdbc;
 
 
 import java.util.Date;

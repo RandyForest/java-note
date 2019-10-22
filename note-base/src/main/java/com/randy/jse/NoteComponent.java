@@ -10,8 +10,8 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.util.Locale;
 
-public class Note_Component {
-    public Note_Component() {
+public class NoteComponent {
+    public NoteComponent() {
     }
 
     public static void main(String[] args) {

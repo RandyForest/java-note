@@ -11,7 +11,7 @@ public class AspectjAnnoTest {
     @Test
     void test1(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("./aspectj-annotation.xml");
-        UserDao userDao = (UserDao) applicationContext.getBean("auserDao");
+        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
         userDao.addUser();
     }
 }

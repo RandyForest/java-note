@@ -1,7 +1,7 @@
 package com.randy.jse;
 
-public class Note_Integer {
-    public Note_Integer() {
+public class NoteInteger {
+    public NoteInteger() {
     }
 
     public static void main(String[] args) {

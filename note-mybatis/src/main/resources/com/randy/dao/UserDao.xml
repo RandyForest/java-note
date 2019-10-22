@@ -4,6 +4,7 @@
 
 <mapper namespace="com.randy.dao.UserDao">
     <select id="findAll" resultType="com.randy.domain.User">
-        select * from user
+        select *
+        from user
     </select>
 </mapper>

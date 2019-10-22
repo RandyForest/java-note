@@ -11,8 +11,8 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Note_File {
-    public Note_File() {
+public class NoteFile {
+    public NoteFile() {
     }
 
     public static void main(String[] args) throws IOException {

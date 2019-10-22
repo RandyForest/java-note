@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
  * Author: randy
  * Date: 2019/10/10 13:23
  */
-@Repository("auserDao")
+@Repository("userDao")
 public class UserDaoImpl implements UserDao {
     @Override
     public void addUser() {
