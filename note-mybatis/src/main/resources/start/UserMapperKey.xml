@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间，不需要真的写UserDao类 -->
+<mapper namespace="start.UserDao">
+    <!-- 添加用户并获取主键 -->
+    <!-- 因为主键设置为自增长，所以在添加用户时不必给值 -->
+    <!-- 如果不进行本配置，则无法获取自增长的主键 -->
+    <!-- keyProperty中的主键名要与User类中主键的属性名相同 -->
+    <insert id="addAndGetKey" parameterType="start.User" keyProperty="id" useGeneratedKeys="true">
+        insert user (id, name, password, birthday, sex, address)
+        values (#{id}, #{name}, #{password}, #{birthday}, #{sex}, #{address})
+    </insert>
+</mapper>

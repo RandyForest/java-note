@@ -32,7 +32,7 @@ public class CacheTest {
      * 一级缓存
      */  @Test
     void test() {
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
 
         User user1 = sqlSession.selectOne("start.UserDao.query", 1);
         System.out.println(user1);
@@ -50,7 +50,7 @@ public class CacheTest {
      */
     @Test
     void test2() {
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
 
         User user1 = sqlSession.selectOne("start.UserDao.query", 1);
         System.out.println(user1);
@@ -71,7 +71,7 @@ public class CacheTest {
      */
     @Test
     void test3(){
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
 
         User user1 = sqlSession.selectOne("start.UserDao.query", 1);
         System.out.println(user1);
@@ -81,7 +81,7 @@ public class CacheTest {
 
 
         // 创建新SqlSession
-        SqlSession sqlSession2 = MybatisUtils.getSqlSession();
+        SqlSession sqlSession2 = MybatisUtils.OpenSqlSession();
 
         User user2 = sqlSession2.selectOne("start.UserDao.query", 1);
         System.out.println(user2);

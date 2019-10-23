@@ -28,7 +28,7 @@ public class MybatisUtils {
         }
     }
 
-    public static SqlSession getSqlSession() {
+    public static SqlSession OpenSqlSession() {
         return sqlSessionFactory.openSession();
     }
 }
