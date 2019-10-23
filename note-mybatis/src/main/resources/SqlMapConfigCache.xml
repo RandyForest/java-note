@@ -3,6 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+    <settings>
+        <!-- 开启二级缓存，也可以不设置，因为默认为true -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
     <!--  配置环境  -->
     <environments default="mysql">
         <!--  配置环境  -->
@@ -21,12 +26,6 @@
 
     <!--  指定注解源配置文件  -->
     <mappers>
-        <!-- 使用配置文件方式 -->
-        <mapper resource="com/randy/dao/UserDao.xml"/>
-
-        <!-- 使用注解方式 -->
-        <mapper class="com.randy.dao.UserDaoAnno"/>
-
-        <mapper resource="start/UserMapper.xml"/>
+         <mapper resource="cache/UserMapperCache.xml"/>
     </mappers>
 </configuration>
