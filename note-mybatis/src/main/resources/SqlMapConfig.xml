@@ -32,5 +32,7 @@
         <mapper resource="com/randy/note/start/UserMapperKey.xml"/>
 
         <mapper resource="com/randy/note/resultmap/BookMapper.xml"/>
+
+        <mapper resource="com/randy/note/start/UserMapperDynamic.xml"/>
     </mappers>
 </configuration>
