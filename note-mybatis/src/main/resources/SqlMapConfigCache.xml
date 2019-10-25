@@ -26,6 +26,6 @@
 
     <!--  指定注解源配置文件  -->
     <mappers>
-         <mapper resource="cache/UserMapperCache.xml"/>
+         <mapper resource="com/randy/note/cache/UserMapperCache.xml"/>
     </mappers>
 </configuration>

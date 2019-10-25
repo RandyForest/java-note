@@ -5,8 +5,8 @@
 <configuration>
     <!-- 设置别名 -->
     <typeAliases>
-        <typeAlias alias="u" type="start.User"/>
-        <package name="start"/>
+        <typeAlias alias="u" type="com.randy.note.start.User"/>
+        <package name="com.randy.note.start"/>
     </typeAliases>
 
     <!--  配置环境  -->
@@ -27,6 +27,6 @@
 
     <!--  指定注解源配置文件  -->
     <mappers>
-        <mapper resource="start/UserMapperAlias.xml"/>
+        <mapper resource="com/randy/note/start/UserMapperAlias.xml"/>
     </mappers>
 </configuration>

@@ -22,15 +22,15 @@
     <!--  指定注解源配置文件  -->
     <mappers>
         <!-- 使用配置文件方式 -->
-        <mapper resource="com/randy/dao/UserDao.xml"/>
+        <mapper resource="com/randy/note/example/dao/UserDao.xml"/>
 
         <!-- 使用注解方式 -->
-        <mapper class="com.randy.dao.UserDaoAnno"/>
+        <mapper class="com.randy.note.example.dao.UserDaoAnno"/>
 
-        <mapper resource="start/UserMapper.xml"/>
+        <mapper resource="com/randy/note/start/UserMapper.xml"/>
 
-        <mapper resource="start/UserMapperKey.xml"/>
+        <mapper resource="com/randy/note/start/UserMapperKey.xml"/>
 
-        <mapper resource="resultmap/BookMapper.xml"/>
+        <mapper resource="com/randy/note/resultmap/BookMapper.xml"/>
     </mappers>
 </configuration>

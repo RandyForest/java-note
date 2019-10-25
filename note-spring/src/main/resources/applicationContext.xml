@@ -5,21 +5,21 @@
 
     <!-- 添加一个实例 -->
     <!-- id：获取Bean实例时传入的值；class：实现类的全名-->
-    <bean id="myBean" class="start.MyBean"/>
+    <bean id="myBean" class="com.randy.note.start.MyBean"/>
 
     <!-- 通过静态工厂方法实例对象 -->
-    <bean id="myBean2" class="start.MyBeanStaticFactory" factory-method="create"/>
+    <bean id="myBean2" class="com.randy.note.start.MyBeanStaticFactory" factory-method="create"/>
 
     <!-- 通过实例工厂实例对象 -->
     <!-- 1.配置工厂的Bean -->
-    <bean id="myBeanFactory" class="start.MyBeanFactory"/>
+    <bean id="myBeanFactory" class="com.randy.note.start.MyBeanFactory"/>
     <!-- 2. 配置一个Bean引用工厂 -->
     <bean id="myBean3" factory-bean="myBeanFactory" factory-method="create"/>
 
 
-    <bean id="userDao" class="start.UserDaoImpl"/>
+    <bean id="userDao" class="com.randy.note.start.UserDaoImpl"/>
 
-    <bean id="userService" class="start.UserServiceImpl">
+    <bean id="userService" class="com.randy.note.start.UserServiceImpl">
         <!-- 将UserDao注入-->
         <property name="userDao" ref="userDao"/>
     </bean>
