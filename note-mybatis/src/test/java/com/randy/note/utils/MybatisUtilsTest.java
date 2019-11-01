@@ -11,7 +11,7 @@ import com.randy.note.start.User;
 public class MybatisUtilsTest {
     @Test
     void test() {
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
         User user = sqlSession.selectOne("com.randy.note.start.UserDao.query", 1);
         System.out.println(user);
     }

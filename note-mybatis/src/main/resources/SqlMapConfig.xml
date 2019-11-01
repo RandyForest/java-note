@@ -22,7 +22,7 @@
     <!--  指定注解源配置文件  -->
     <mappers>
         <!-- 使用配置文件方式 -->
-        <mapper resource="com/randy/note/example/dao/UserDao.xml"/>
+        <mapper resource="com/randy/note/example/mapper/UserMapper.xml"/>
 
         <!-- 使用注解方式 -->
         <mapper class="com.randy.note.example.dao.UserDaoAnno"/>
@@ -34,5 +34,12 @@
         <mapper resource="com/randy/note/resultmap/BookMapper.xml"/>
 
         <mapper resource="com/randy/note/start/UserMapperDynamic.xml"/>
+
+        <mapper resource="com/randy/note/association/onetoone/UserMapper.xml"/>
+        <mapper resource="com/randy/note/association/onetoone/AccountMapper.xml"/>
+
+        <mapper resource="com/randy/note/association/onetomany/UserMapper.xml"/>
+
+        <mapper resource="com/randy/note/association/manytomany/UserMapper.xml"/>
     </mappers>
 </configuration>

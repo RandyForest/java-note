@@ -11,7 +11,7 @@ import com.randy.note.utils.MybatisUtils;
 public class ResultMapTest {
     @Test
     void test(){
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
         Book book = sqlSession.selectOne("com.randy.note.resultmap.BookDao.query", 1);
         System.out.println(book);
     }
@@ -21,7 +21,7 @@ public class ResultMapTest {
      */
     @Test
     void test2(){
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
         BookRM book = sqlSession.selectOne("com.randy.note.resultmap.BookDao.queryRM", 1);
         System.out.println(book);
     }

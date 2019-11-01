@@ -89,11 +89,24 @@
         where id=#{id}
     </update>
 
-    <!-- 传入一个ID数组查询 -->
+    <!-- 传入一个ID列表查询 -->
     <select id="queryByIdList" resultType="com.randy.note.start.User">
         select * from user where id in
         <foreach collection="list" index="i" item="id" open="(" separator="," close=")">
             #{id}
         </foreach>
+    </select>
+
+    <!-- 传入一个ID数组查询 -->
+    <select id="queryByIds" resultType="com.randy.note.start.User">
+        select * from user where id in
+        <foreach collection="array" index="i" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="queryByFuzzyName" parameterType="String" resultType="com.randy.note.start.User">
+        <bind name="fuzzyName" value="'%'+name+'%'"/>
+        select * from user where name like #{fuzzyName}
     </select>
 </mapper>

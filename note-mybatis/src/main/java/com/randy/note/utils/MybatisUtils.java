@@ -28,7 +28,21 @@ public class MybatisUtils {
         }
     }
 
-    public static SqlSession OpenSqlSession() {
+    public static SqlSession openSqlSession() {
+        return sqlSessionFactory.openSession();
+    }
+
+    public static SqlSession openSqlSessionByConfig(String configPath) {
+        Reader resourceAsReader = null;
+        try {
+            resourceAsReader = Resources.getResourceAsReader(configPath);
+        } catch (IOException e) {
+            System.out.println("读取配置文件出错！");
+            e.printStackTrace();
+        }
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+        sqlSessionFactory = sqlSessionFactoryBuilder.build(resourceAsReader);
+
         return sqlSessionFactory.openSession();
     }
 }

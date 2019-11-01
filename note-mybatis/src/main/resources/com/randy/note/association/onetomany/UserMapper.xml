@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.randy.note.association.onetomany.UserMapper">
+
+    <!--  语句查出的表结果如下：  -->
+    <!--| id | name  | password | birthday   | sex | address | order_id | code            | user_id |-->
+    <!--|  1 | user1 | NULL     | 2019-05-11 | 男  | 北京    |        1 | adsfasfqqqqqxxx | 1       |-->
+    <!--|  1 | user1 | NULL     | 2019-05-11 | 男  | 北京    |       10 | b               | 1       |-->
+    <select id="query" parameterType="int" resultMap="userResultMap">
+        select user.*,
+               `order`.id as order_id,
+               `order`.code,
+               `order`.user_id
+        from user
+                 left join `order` on user.id = `order`.user_id
+        where user.id = #{id}
+    </select>
+
+    <!--  把 order 表中的两个结果放入User类的orderList中  -->
+    <resultMap id="userResultMap" type="com.randy.note.association.onetomany.User" autoMapping="true">
+        <id property="id" column="id"/>
+        <!--<result property="name" column="name"/>-->
+        <!--<result property="password" column="password"/>-->
+        <!--<result property="birthday" column="birthday"/>-->
+        <!--<result property="sex" column="sex"/>-->
+        <!--<result property="address" column="address"/>-->
+        <collection property="orderList" ofType="com.randy.note.association.onetomany.Order" autoMapping="true">
+            <id property="id" column="order_id"/>
+            <!--<result property="code" column="code"/>-->
+            <result property="userId" column="user_id"/>
+        </collection>
+    </resultMap>
+</mapper>

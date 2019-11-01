@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.randy.note.association.onetoone.AccountDao">
+    <!-- 使用结果映射 -->
+    <select id="queryWithUser" parameterType="int" resultMap="accountWithUser">
+        select *
+        from account
+        where id = #{id}
+    </select>
+
+    <!-- 配置结果映射 -->
+    <resultMap id="accountWithUser" type="com.randy.note.association.onetoone.Account">
+        <id property="id" column="id"/>
+        <result property="money" column="money"/>
+        <result property="userId" column="user_id"/>
+        <!-- 利用UserMapper中的查询方法查询User并返回User到Account.user中 -->
+        <association property="user"
+                     column="user_id"
+                     javaType="com.randy.note.association.onetoone.User"
+                     select="com.randy.note.association.onetoone.UserDao.query"/>
+    </resultMap>
+
+    <!-- 内嵌映射，使用SQL语句查询 -->
+    <select id="queryWithUser2" parameterType="int" resultMap="queryWithUser2">
+        select *
+        from account
+                left join user on user.id = account.user_id
+        where account.id = #{id}
+    </select>
+
+    <resultMap id="queryWithUser2" type="com.randy.note.association.onetoone.Account">
+        <id property="id" column="id"/>
+        <result property="money" column="money"/>
+        <result property="userId" column="user_id"/>
+        <!-- 设置autoMapping后只用把主键关联上，其他字段自动映射 -->
+        <association property="user" javaType="com.randy.note.association.onetoone.User" autoMapping="true">
+            <id property="id" column="user_id"/>
+        </association>
+
+    </resultMap>
+</mapper>

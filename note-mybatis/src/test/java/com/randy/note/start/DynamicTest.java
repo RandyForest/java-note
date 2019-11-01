@@ -4,8 +4,6 @@ import com.randy.note.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,7 +13,7 @@ import java.util.List;
 public class DynamicTest {
     @Test
     void test(){
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
 
         User user = new User();
         user.setName("a");
@@ -28,7 +26,7 @@ public class DynamicTest {
 
     @Test
     void test2(){
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
 
         User user = new User();
         user.setName("a");
@@ -41,7 +39,7 @@ public class DynamicTest {
 
     @Test
     void test3(){
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
 
         User user = new User();
         // user.setId(1);
@@ -55,7 +53,7 @@ public class DynamicTest {
 
     @Test
     void test4(){
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
 
         User user = new User();
         user.setId(25);
@@ -70,10 +68,30 @@ public class DynamicTest {
 
     @Test
     void test5(){
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
 
         List<Integer> idList = List.of(1, 11, 22, 21, 20);
         List<User> userList= sqlSession.selectList("com.randy.note.start.UserDao.queryByIdList", idList);
+        userList.forEach(System.out::println);
+        sqlSession.close();
+    }
+
+    @Test
+    void test6(){
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
+
+        int[] ids = {1, 2, 11, 12, 23, 22, 21};
+        List<User> userList= sqlSession.selectList("com.randy.note.start.UserDao.queryByIds", ids);
+        userList.forEach(System.out::println);
+        sqlSession.close();
+    }
+
+    @Test
+    void test7(){
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
+
+        String name="na";
+        List<User> userList= sqlSession.selectList("com.randy.note.start.UserDao.queryByFuzzyName", name);
         userList.forEach(System.out::println);
         sqlSession.close();
     }

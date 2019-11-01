@@ -34,10 +34,11 @@ class MybatisTest {
         SqlSession session = factory.openSession();
 
         // 使用配置文件配置
-        UserDao userDao = session.getMapper(UserDao.class);
+        // UserDao userDao = session.getMapper(UserDao.class);
+        // List<User> users = userDao.findAll();
 
-        List<User> users = userDao.findAll();
-        for (User user : users) {
+        List<User> userList = session.selectList("com.randy.note.example.mapper.UserMapper.findAll");
+        for (User user : userList) {
             System.out.println("ID: " + user.getId() + ", Name: " + user.getUsername());
         }
 

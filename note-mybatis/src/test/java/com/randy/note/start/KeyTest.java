@@ -13,7 +13,7 @@ import java.util.Date;
 public class KeyTest {
     @Test
     void test(){
-        SqlSession sqlSession = MybatisUtils.OpenSqlSession();
+        SqlSession sqlSession = MybatisUtils.openSqlSession();
 
         User user = new User();
         // 如果数据库表的id设置为自增长，则无需定义
