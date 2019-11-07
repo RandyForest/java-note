@@ -4,13 +4,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="aspectjUserDao" class="aspectj.UserDaoImpl"/>
+    <bean id="aspectjUserDao" class="com.randy.note.aspectj.UserDaoImpl"/>
 
-    <bean id="aspectjMyAspect" class="aspectj.MyAspect"/>
+    <bean id="aspectjMyAspect" class="com.randy.note.aspectj.MyAspect"/>
 
     <aop:config>
         <aop:aspect id="myAspect" ref="aspectjMyAspect">
-            <aop:pointcut id="myPointCut" expression="execution(* aspectj.UserDao.*(..))"/>
+            <aop:pointcut id="myPointCut" expression="execution(* com.randy.note.aspectj.UserDao.*(..))"/>
             <aop:before method="before" pointcut-ref="myPointCut"/>
             <aop:after method="after" pointcut-ref="myPointCut"/>
             <aop:after-returning method="afterReturning" pointcut-ref="myPointCut"/>

@@ -18,7 +18,7 @@
     </bean>
 
 
-    <bean id="jdbcUserDao" class="jdbc.UserDaoImpl">
+    <bean id="jdbcUserDao" class="com.randy.note.jdbc.UserDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 </beans>

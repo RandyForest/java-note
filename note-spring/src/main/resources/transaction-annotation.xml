@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 承接jdbc.xml -->
-    <bean id="accountDaoAnno" class="transactionanno.AccountDaoImpl">
+    <bean id="accountDaoAnno" class="com.randy.note.transactionanno.AccountDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
@@ -28,7 +28,7 @@
     <!--</tx:advice>-->
 
     <!--<aop:config>-->
-    <!--    <aop:pointcut id="txPointCut" expression="execution(* transaction.AccountDao.*(..))"/>-->
+    <!--    <com.randy.note.aop:pointcut id="txPointCut" expression="execution(* com.randy.note.transaction.AccountDao.*(..))"/>-->
     <!--    <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>-->
     <!--</aop:config>-->
 
