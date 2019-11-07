@@ -9,5 +9,5 @@ public interface UserService {
     /**
      * 定义一个简单输出方法
      */
-    public void say();
+    void say();
 }

@@ -9,5 +9,5 @@ public interface UserDao {
     /**
      * 定义一个打印方法
      */
-    public void say();
+    void say();
 }

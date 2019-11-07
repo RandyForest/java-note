@@ -23,11 +23,11 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 如果存在两个实现类，则会存在歧义，报运行时错误
-     * Java方法替代@Qualifier("impl2")
-     * @Resource 需要javax.annotation-api包依赖
-     * @param userDao
+     * Java方法替代 @Autowired 与 @Qualifier("userDaoImpl2")
+     * 使用 @Resource 需要javax.annotation-api包依赖
+     *
+     * @param userDao 用户数据访问对象
      */
-    @Autowired(required = true)
     @Resource(name = "userDaoImpl2")
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
