@@ -1,22 +1,23 @@
-package com.randy.note.example;
+package com.randy.note.javaconfig;
 
-import com.randy.note.example.config.Config;
-import com.randy.note.example.controller.UserController;
+import com.randy.note.javaconfig.config.Config;
+import com.randy.note.javaconfig.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /**
- * Author: randy
- * Date: 2019/11/7 17:56
+ * Date: 2019/11/8 0:11
+ *
+ * @author randy
  */
 @SpringJUnitConfig(Config.class)
 class MainTest {
     @Autowired
-    private UserController userController;
+    private UserService userService;
 
     @Test
     void test(){
-        userController.add();
+        userService.doSomething();
     }
 }
