@@ -1,11 +1,10 @@
 package com.randy.note.conflicts.java;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
  * 实现类2
- * @Component userDaoImpl2 用于标识，默认为类名首字母小写
+ * 使用 @Component userDaoImpl2 用于标识，默认为类名首字母小写
  * 在使用时指定，用方法与 @Qualifier 一样
  *
  * Author: randy

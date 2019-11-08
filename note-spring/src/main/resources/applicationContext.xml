@@ -5,6 +5,7 @@
 
     <!-- 添加一个实例 -->
     <!-- id：获取Bean实例时传入的值；class：实现类的全名-->
+    <!-- 如果不设置id则Spring会自动命名，格式：类全名#索引 -->
     <bean id="myBean" class="com.randy.note.start.MyBean"/>
 
     <!-- 通过静态工厂方法实例对象 -->

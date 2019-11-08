@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 使用注释配置
- * @Component 交予Spring管理
+ * 使用 @Component 交予Spring管理
  * Author: randy
  * Date: 2019/10/8 14:12
  */

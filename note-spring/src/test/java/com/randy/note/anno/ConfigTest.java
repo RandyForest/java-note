@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  * Author: randy
  * Date: 2019/11/7 0:05
  */
-public class ConfigTest {
+class ConfigTest {
     @Test
     void test(){
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Config.class);

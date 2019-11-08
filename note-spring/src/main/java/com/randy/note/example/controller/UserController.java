@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 
 /**
  * 控制器类
- * @Controller 代替 @Component
+ * 使用 @Controller 代替 @Component
+ *
  * Author: randy
  * Date: 2019/11/7 17:48
  */

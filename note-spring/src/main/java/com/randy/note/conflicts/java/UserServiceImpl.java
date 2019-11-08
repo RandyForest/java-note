@@ -1,7 +1,5 @@
 package com.randy.note.conflicts.java;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -24,6 +22,7 @@ public class UserServiceImpl implements UserService {
     /**
      * 如果存在两个实现类，则会存在歧义，报运行时错误
      * Java方法替代 @Autowired 与 @Qualifier("userDaoImpl2")
+     * 用法：@Resource 的用法与 @Autowired 的大致一样
      * 使用 @Resource 需要javax.annotation-api包依赖
      *
      * @param userDao 用户数据访问对象
@@ -34,12 +33,11 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 调用UserDao.say()
+     * 调用 UserDao.say()
      */
     @Override
     public void say() {
         System.out.println("UserServiceImpl.say()");
-
         this.userDao.say();
     }
 }
