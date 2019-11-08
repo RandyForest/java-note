@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = Config.class)
-public class SpringTest {
+class SpringTest {
     @Autowired
     UserService userService;
 

@@ -14,6 +14,7 @@ public class UserDaoImpl implements UserDao {
     public UserDaoImpl(){
         System.out.println("UserDaoImpl()");
     }
+
     /**
      * 一个简单的实现
      */
