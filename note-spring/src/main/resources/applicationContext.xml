@@ -29,6 +29,10 @@
     构造器注入
     constructor 元素
     ref：在配置文件中定义的Bean的ID
+    value：直接给定值
+    name：变量名，形参名。以set方法为准。
+    index：指定第几个形参
+    type：指定参数类型
     方法参数注入
     property 元素
     name：属性变量名
