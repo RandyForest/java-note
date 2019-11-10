@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间，不需要真的写UserDao类 -->
+<mapper namespace="com.randy.note.mybatis.resultmap.BookDao">
+
+    <!-- 查询一条数据 -->
+    <select id="query" parameterType="int" resultType="com.randy.note.mybatis.resultmap.Book">
+        select *
+        from book
+        where b_id = #{id}
+    </select>
+
+    <!-- 使用结果集映射 -->
+    <resultMap id="resultMap" type="com.randy.note.mybatis.resultmap.BookRM">
+        <!-- property：类中属性名；column：表中列名 -->
+        <id property="id" column="b_id"/>
+        <id property="name" column="b_name"/>
+        <id property="price" column="b_price"/>
+    </resultMap>
+
+    <!-- 如不使用结果集映射则无法把表中字段与类中属性对应 -->
+    <select id="queryRM" parameterType="int" resultMap="resultMap">
+        select *
+        from book
+        where b_id = #{id}
+    </select>
+
+</mapper>

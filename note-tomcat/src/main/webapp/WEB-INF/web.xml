@@ -20,17 +20,17 @@
 
     <!-- Listener -->
     <listener>
-        <listener-class>com.randy.tomcat.lisenter.FileListener</listener-class>
+        <listener-class>com.randy.note.tomcat.lisenter.FileListener</listener-class>
     </listener>
 
     <!-- Servlet -->
     <servlet>
         <servlet-name>UploadFile</servlet-name>
-        <servlet-class>com.randy.tomcat.UploadFile</servlet-class>
+        <servlet-class>com.randy.note.tomcat.UploadFile</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DownloadFile</servlet-name>
-        <servlet-class>com.randy.tomcat.DownloadFile</servlet-class>
+        <servlet-class>com.randy.note.tomcat.DownloadFile</servlet-class>
     </servlet>
 
     <servlet-mapping>

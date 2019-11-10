@@ -25,7 +25,7 @@
         <mapper resource="com/randy/note/example/mapper/UserMapper.xml"/>
 
         <!-- 使用注解方式 -->
-        <mapper class="com.randy.note.example.dao.UserDaoAnno"/>
+        <mapper class="com.randy.note.mybatis.example.dao.UserDaoAnno"/>
 
         <mapper resource="com/randy/note/start/UserMapper.xml"/>
 

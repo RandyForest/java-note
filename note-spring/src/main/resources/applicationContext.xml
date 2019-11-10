@@ -9,21 +9,32 @@
     name：可以定义多个名字，以逗号，分号，空格隔开
     class：实现类的全名
     -->
-    <bean id="myBean" class="com.randy.note.start.MyBean"/>
+    <bean id="myBean" class="com.randy.note.spring.start.MyBean"/>
 
     <!-- 通过静态工厂方法实例对象 -->
-    <bean id="myBean2" class="com.randy.note.start.MyBeanStaticFactory" factory-method="create"/>
+    <bean id="myBean2" class="com.randy.note.spring.start.MyBeanStaticFactory" factory-method="create"/>
 
     <!-- 通过实例工厂实例对象 -->
     <!-- 1.配置工厂的Bean -->
-    <bean id="myBeanFactory" class="com.randy.note.start.MyBeanFactory"/>
+    <bean id="myBeanFactory" class="com.randy.note.spring.start.MyBeanFactory"/>
     <!-- 2. 配置一个Bean引用工厂 -->
     <bean id="myBean3" factory-bean="myBeanFactory" factory-method="create"/>
 
 
-    <bean id="userDao" class="com.randy.note.start.UserDaoImpl"/>
+    <bean id="userDao" class="com.randy.note.spring.start.UserDaoImpl"/>
 
-    <bean id="userService" class="com.randy.note.start.UserServiceImpl">
+    <!--
+    注入对象到属性
+    将上方定义的userDao注入到userService的属性中
+    构造器注入
+    constructor 元素
+    ref：在配置文件中定义的Bean的ID
+    方法参数注入
+    property 元素
+    name：属性变量名
+    ref：在配置文件中定义的Bean的ID
+    -->
+    <bean id="userService" class="com.randy.note.spring.start.UserServiceImpl">
         <!-- 将UserDao注入-->
         <property name="userDao" ref="userDao"/>
     </bean>

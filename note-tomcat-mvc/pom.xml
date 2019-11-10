@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>note-tomcat-mvc Maven Webapp</name>
+    <name>note-tomcat-mvc</name>
     <url>http://localhost:8080/${project.name}</url>
 
     <properties>

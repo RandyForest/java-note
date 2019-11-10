@@ -26,7 +26,7 @@
 
 
     <!-- 承接jdbc.xml -->
-    <bean id="accountDao" class="com.randy.note.transaction.AccountDaoImpl">
+    <bean id="accountDao" class="com.randy.note.spring.transaction.AccountDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
@@ -42,7 +42,7 @@
     </tx:advice>
 
     <aop:config>
-        <aop:pointcut id="txPointCut" expression="execution(* com.randy.note.transaction.AccountDao.*(..))"/>
+        <aop:pointcut id="txPointCut" expression="execution(* com.randy.note.spring.transaction.AccountDao.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
     </aop:config>
 </beans>

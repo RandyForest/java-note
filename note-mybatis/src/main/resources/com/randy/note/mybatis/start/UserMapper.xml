@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间，不需要真的写UserDao类 -->
+<mapper namespace="UserDao">
+    <!--
+    查询一条数据
+    id：可以理解为方法名
+    resultType：返回结果的类型
+    parameterType：传入参数的类型
+    -->
+    <select id="query" parameterType="int" resultType="com.randy.note.mybatis.start.User">
+        select *
+        from user
+        where id = #{id}
+    </select>
+
+    <!-- 根据名字查询用户 -->
+    <!-- 此方法会产生SQL漏洞 -->
+    <!--<select id="queryByName" parameterType="String" resultType="User">-->
+    <!--    <bind name="likeName" value="'%'+name+'%'"/>-->
+    <!--    select *-->
+    <!--    from user-->
+    <!--    where name like '%${value}%'-->
+    <!--</select>-->
+
+    <!-- 使用SQL 的 concat() 连接字符串方法反注入 -->
+    <!--<select id="queryByName" parameterType="String" resultType="User">-->
+    <!--    <bind name="likeName" value="'%'+name+'%'"/>-->
+    <!--    select *-->
+    <!--    from user-->
+    <!--    where name like concat('%',#{name},'%')-->
+    <!--</select>-->
+
+    <!-- 使用bind标签反注入 -->
+    <select id="queryByName" parameterType="String" resultType="com.randy.note.mybatis.start.User">
+        <bind name="likeName" value="'%'+name+'%'"/>
+        select *
+        from user
+        where name like #{likeName}
+    </select>
+
+    <!-- 使用代码内加入 % 的方法反注入 -->
+    <!--<select id="queryByName" parameterType="String" resultType="User">-->
+    <!--    select *-->
+    <!--    from user-->
+    <!--    where name like #{name}-->
+    <!--</select>-->
+
+
+    <!-- 添加用户 -->
+    <!-- value 中的值要与User类中的属性名相同 -->
+    <insert id="add" parameterType="com.randy.note.mybatis.start.User">
+        insert user (id, name, password, birthday, sex, address)
+        values (#{id}, #{name}, #{password}, #{birthday}, #{sex}, #{address})
+    </insert>
+
+    <!-- 更新用户 -->
+    <update id="update" parameterType="com.randy.note.mybatis.start.User">
+        update user
+        set name=#{name},
+            password=#{password},
+            birthday=#{birthday},
+            sex=#{sex},
+            address=#{address}
+        where id = #{id}
+    </update>
+
+    <!-- 删除用户 -->
+    <delete id="delete" parameterType="int">
+        delete from user
+        where id = ${id}
+    </delete>
+
+    <!-- 动态SQL -->
+    <select id="querySql" parameterType="int" resultType="com.randy.note.mybatis.start.User">
+        select *
+        from user
+        where id = #{id}
+    </select>
+</mapper>

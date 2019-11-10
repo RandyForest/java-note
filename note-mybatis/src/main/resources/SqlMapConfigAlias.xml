@@ -5,8 +5,8 @@
 <configuration>
     <!-- 设置别名 -->
     <typeAliases>
-        <typeAlias alias="u" type="com.randy.note.start.User"/>
-        <package name="com.randy.note.start"/>
+        <typeAlias alias="u" type="com.randy.note.mybatis.start.User"/>
+        <package name="com.randy.note.mybatis.start"/>
     </typeAliases>
 
     <!--  配置环境  -->

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserDao">
+    <!-- 根据多个字段进行查询 -->
+    <!-- 1=1 防止条件成立时导致语法错误 -->
+    <select id="queryByFields" parameterType="com.randy.note.mybatis.start.User" resultType="com.randy.note.mybatis.start.User">
+        select *
+        from user
+        where 1=1
+        <if test="name != null">
+            and name like concat('%',#{name},'%')
+        </if>
+        <if test="birthday != null">
+            and birthday =#{birthday}
+        </if>
+        <if test="sex != null">
+            and sex =#{sex}
+        </if>
+        <if test="address != null">
+            and address like concat('%',#{address},'%')
+        </if>
+    </select>
+
+    <!-- 使用 where 标签防止语法错误 -->
+    <select id="queryByFields2" parameterType="com.randy.note.mybatis.start.User" resultType="com.randy.note.mybatis.start.User">
+        select *
+        from user
+        <where>
+            <if test="name != null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="birthday != null">
+                and birthday =#{birthday}
+            </if>
+            <if test="sex != null">
+                and sex=#{sex}
+            </if>
+            <if test="address != null">
+                and address like concat('%',#{address},'%')
+            </if>
+        </where>
+    </select>
+
+    <!-- 优先使用条件，类似switch-case，例如给定了id就会忽略下面的条件 -->
+    <!-- 注意：id默认传0 -->
+    <select id="queryByFields3" parameterType="com.randy.note.mybatis.start.User" resultType="com.randy.note.mybatis.start.User">
+        select *
+        from user
+        <trim prefix="where" prefixOverrides="and|or">
+            <choose>
+                <when test="id > 0">
+                    and id=#{id}
+                </when>
+                <when test="name != null">
+                    and name like concat('%',#{name},'%')
+                </when>
+                <when test="birthday != null">
+                    and birthday =#{birthday}
+                </when>
+                <when test="sex != null">
+                    and sex=#{sex}
+                </when>
+                <when test="address != null">
+                    and address like concat('%',#{address},'%')
+                </when>
+            </choose>
+        </trim>
+    </select>
+
+    <!-- set 标签会自动去除结尾的逗号 -->
+    <update id="updateByFields" parameterType="com.randy.note.mybatis.start.User">
+        update user
+        <set>
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="birthday != null">
+                birthday=#{birthday},
+            </if>
+            <if test="sex != null">
+                sex=#{sex},
+            </if>
+            <if test="address != null">
+                address=#{address}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!-- 传入一个ID列表查询 -->
+    <select id="queryByIdList" resultType="com.randy.note.mybatis.start.User">
+        select * from user where id in
+        <foreach collection="list" index="i" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 传入一个ID数组查询 -->
+    <select id="queryByIds" resultType="com.randy.note.mybatis.start.User">
+        select * from user where id in
+        <foreach collection="array" index="i" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="queryByFuzzyName" parameterType="String" resultType="com.randy.note.mybatis.start.User">
+        <bind name="fuzzyName" value="'%'+name+'%'"/>
+        select * from user where name like #{fuzzyName}
+    </select>
+</mapper>
