@@ -1,4 +1,4 @@
-package com.randy.note.transactionanno;
+package com.randy.note.spring.transactionanno;
 
 
 /**
@@ -19,7 +19,7 @@ public class Account {
         this.id = id;
     }
 
-    public double getMoney() {
+    double getMoney() {
         return money;
     }
 
@@ -27,7 +27,7 @@ public class Account {
         this.money = money;
     }
 
-    public int getUserId() {
+    int getUserId() {
         return userId;
     }
 
