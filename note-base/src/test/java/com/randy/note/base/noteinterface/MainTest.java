@@ -20,20 +20,14 @@ class MainTest {
      * 测试 ClassA
      */
     @Test
-    void testClassA(){
-        /*
-         * 调用 ClassA 中的自带的普通方法
-         */
+    void testClassA() {
+        // 调用 ClassA 中的自带的普通方法
         new ClassA().ClassAFun();    // ClassA#ClassAFun  InterfaceA#defaultFun()
 
-        /*
-         * 调用 ClassA 父接口 InterfaceA 中的默认方法 defaultFun()
-         */
+        // 调用 ClassA 父接口 InterfaceA 中的默认方法 defaultFun()
         new ClassA().defaultFun();    // InterfaceA#defaultFun()
 
-        /*
-         * 调用 ClassA 父接口 InterfaceB 中的默认方法 BFun()
-         */
+        // 调用 ClassA 父接口 InterfaceB 中的默认方法 BFun()
         new ClassA().BFun();    // InterfaceB#BFun()   InterfaceA#defaultFun()
 
     }

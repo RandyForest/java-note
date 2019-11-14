@@ -1,5 +1,9 @@
 package com.randy.note.base.noteinterface;
 
+/**
+ * 接口中的所有方法权限修饰符隐式声明为 public
+ * 接口中可以定义三种方法 静态方法，默认方法和抽象方法
+ */
 public interface InterfaceA {
     /**
      * 接口中的属性都隐式声明为 public static final
@@ -8,14 +12,11 @@ public interface InterfaceA {
      */
     int A = 1;
 
-    /*
-     * 接口中的所有方法权限修饰符隐式声明为 public
-     * 接口中可以定义三种方法 静态方法，默认方法和抽象方法
-     */
+
 
     /**
      * 静态方法
-     * 随接口存在
+     * 随接口存在，不能被继承
      */
     static void staticFun() {
         System.out.println("InterfaceA#staticFun()");
@@ -23,9 +24,9 @@ public interface InterfaceA {
 
     /**
      * 默认方法
-     * 可以写具体实现
-     * 只能由实现类的实例来调用
-     * 只能在接口中定义
+     * 1.可以写具体实现
+     * 2.调用方法：(1)实现类的实例来调用；(2)通过子接口或实现类来调用
+     * 3.只能在接口中定义
      */
     default void defaultFun() {
         System.out.println("InterfaceA#defaultFun()");

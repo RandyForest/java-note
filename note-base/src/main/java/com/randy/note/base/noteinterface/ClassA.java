@@ -12,7 +12,10 @@ public class ClassA implements InterfaceA, InterfaceB {
      */
     void ClassAFun() {
         System.out.println("ClassA#ClassAFun");
+
         // 调用父接口的父接口的方法
+        // 不能使用 InterfaceA 接口调用，因为已经被 InterfaceB 接口扩展，调用会造成冗余
+        // InterfaceA.super.defaultFun();
         InterfaceB.super.defaultFun();
     }
 
@@ -28,7 +31,5 @@ public class ClassA implements InterfaceA, InterfaceB {
     /*
      * 普通方法中不能使用 default 修饰符
      */
-    // default void d(){
-    //
-    // }
+    // default void d(){}
 }

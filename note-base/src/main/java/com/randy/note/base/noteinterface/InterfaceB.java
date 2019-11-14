@@ -8,14 +8,9 @@ public interface InterfaceB extends InterfaceA {
         System.out.println("InterfaceB#BFun()");
 
         /*
-         * 调用父接口 InterfaceA 中的方法 AFun2
+         * 调用父接口 InterfaceA 中的默认方法 defaultFun()
          * 说明默认方法可以被继承
          */
         defaultFun();
-    }
-
-    @Override
-    default void defaultFun() {
-
     }
 }
