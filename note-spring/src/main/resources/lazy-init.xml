@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    开启懒初始化
+    默认作用域为singleton时，在Spring初始化时就会创建Bean实例
+    lazy-init属性设置为true时，就会在使用Bean时创建实例，如同prototype作用域一样
+    -->
+    <bean class="com.randy.note.spring.lazyinit.MyBeanSingleton" lazy-init="true"/>
+
+    <!-- 不能通过关闭懒初始化的方法使prototype自动创建 -->
+    <bean class="com.randy.note.spring.lazyinit.MyBeanPrototype" scope="prototype" lazy-init="false"/>
+</beans>

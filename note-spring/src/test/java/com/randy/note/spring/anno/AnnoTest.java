@@ -6,11 +6,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 
 /**
+ * 测试注解
+ *
  * Author: randy
  * Date: 2019/11/6 21:53
  */
-@ComponentScan
-public class AnnoTest {
+class AnnoTest {
     @Test
    void test(){
         System.out.println("Application.main()");

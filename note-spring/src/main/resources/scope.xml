@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    Bean的作用域
+    用scope属性定义
+    取值：
+    singleton：单例，Spring在初始化时就创建，并且只创建一个实例
+    prototype：原型，在使用时创建，并且可以创建多个实例
+    默认为：singleton
+    -->
+    <bean id="myBeanSingleton" class="com.randy.note.spring.scope.MyBean"/>
+
+    <bean id="myBeanPrototype" class="com.randy.note.spring.scope.MyBean" scope="prototype"/>
+</beans>

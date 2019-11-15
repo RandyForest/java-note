@@ -18,17 +18,18 @@ class NoteTry {
         } finally {
             System.out.println("finally");
             i = 3;      // 虽然最终会执行，但如果不在之后的return返回就不会覆盖try中的结果值1
-            return i;   // 会覆盖 try 中的 return
+            // return i;   // 会覆盖 try 中的 return
         }
 
-        // return i;    // 会覆盖 try 中的 return
+        // return i;   // 会覆盖 try 中的 return
     }
 
     /**
-     * 在finally中改变了指针的地址也不会影响返回值
-     * @return
+     * 在finally中改变了指针，但不会影响返回值
+     *
+     * @return "try"
      */
-    public String tryString() {
+    String tryString() {
         String s = new String("");
         try {
             s = new String("try");
@@ -46,9 +47,10 @@ class NoteTry {
 
     /**
      * 会改变引用变量的内部值
-     * @return
+     *
+     * @return SimpleClass类对象
      */
-    public SimpleClass trySimpleClass(){
+    SimpleClass trySimpleClass() {
         SimpleClass simpleClass = new SimpleClass();
         try {
             simpleClass.setNum(1);
@@ -56,7 +58,7 @@ class NoteTry {
         } catch (Exception e) {
             simpleClass.setNum(2);
             return simpleClass;
-        }finally {
+        } finally {
             simpleClass.setNum(3);  // 会改变 simpleClass 中的 num 的值
             // return simpleClass;
         }

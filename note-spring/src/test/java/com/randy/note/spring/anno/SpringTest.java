@@ -7,6 +7,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
+ * Java类配置测试
+ * 使用注解测试
+ *
  * Author: randy
  * Date: 2019/11/7 11:07
  */

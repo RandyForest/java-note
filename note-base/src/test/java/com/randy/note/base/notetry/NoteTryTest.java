@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
  * Author: randy
  * Date: 2019/10/22 14:45
  */
-class MOteTryTest {
+class NoteTryTest {
     @Test
-    void test(){
+    void testTryInt(){
         NoteTry noteTry = new NoteTry();
         int i = noteTry.tryInt();
         System.out.println(i);
@@ -22,7 +22,7 @@ class MOteTryTest {
     }
 
     @Test
-    void testTraySimpleClass(){
+    void testTrySimpleClass(){
         NoteTry noteTry = new NoteTry();
         SimpleClass simpleClass = noteTry.trySimpleClass();
         System.out.println(simpleClass.getNum());

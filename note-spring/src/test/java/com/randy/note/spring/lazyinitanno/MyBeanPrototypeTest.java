@@ -1,22 +1,20 @@
-package com.randy.note.spring.anno;
+package com.randy.note.spring.lazyinitanno;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /**
- * Spring新定义测试注解
- *
  * Author: randy
- * Date: 2019/11/7 11:07
+ * Date: 2019/11/15 22:32
  */
 @SpringJUnitConfig(Config.class)
-class SpringTest2 {
-    @Autowired
-    UserService userService;
+class MyBeanPrototypeTest {
+    // @Autowired
+    // MyBeanPrototype myBeanPrototype;
 
     @Test
     void test(){
-        userService.say();
+        // 一个启动方法
     }
 }
