@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 通过实例工厂实例对象 -->
+    <!-- 1.配置工厂的Bean -->
+    <bean id="myBeanFactory" class="com.randy.note.spring.factory.MyBeanFactory"/>
+    <!-- 2. 配置一个Bean引用工厂 -->
+    <bean factory-bean="myBeanFactory" factory-method="create"/>
+
+</beans>

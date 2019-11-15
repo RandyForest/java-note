@@ -11,16 +11,6 @@
     -->
     <bean id="myBean" class="com.randy.note.spring.start.MyBean"/>
 
-    <!-- 通过静态工厂方法实例对象 -->
-    <bean id="myBean2" class="com.randy.note.spring.start.MyBeanStaticFactory" factory-method="create"/>
-
-    <!-- 通过实例工厂实例对象 -->
-    <!-- 1.配置工厂的Bean -->
-    <bean id="myBeanFactory" class="com.randy.note.spring.start.MyBeanFactory"/>
-    <!-- 2. 配置一个Bean引用工厂 -->
-    <bean id="myBean3" factory-bean="myBeanFactory" factory-method="create"/>
-
-
     <bean id="userDao" class="com.randy.note.spring.start.UserDaoImpl"/>
 
     <!--

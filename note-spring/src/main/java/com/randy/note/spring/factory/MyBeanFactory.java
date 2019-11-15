@@ -1,4 +1,4 @@
-package com.randy.note.spring.start;
+package com.randy.note.spring.factory;
 
 /**
  * 定义一个实例化工厂
@@ -8,7 +8,7 @@ package com.randy.note.spring.start;
  */
 public class MyBeanFactory {
     public MyBeanFactory(){
-        System.out.println("MyBeanFactory被创建");
+        System.out.println("MyBeanFactory被实例化");
     }
 
     /**
