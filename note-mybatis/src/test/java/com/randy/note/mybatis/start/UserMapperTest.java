@@ -15,7 +15,7 @@ import java.util.List;
  * Author: randy
  * Date: 2019/10/19 18:08
  */
-public class UserMapperTest {
+class UserMapperTest {
     @Test
     void test() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("./SqlMapConfig.xml");

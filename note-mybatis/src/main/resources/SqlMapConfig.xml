@@ -12,7 +12,7 @@
             <!-- 配置数据源，连接池  -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/test_schema"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/test"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root"/>
             </dataSource>
@@ -22,24 +22,24 @@
     <!--  指定注解源配置文件  -->
     <mappers>
         <!-- 使用配置文件方式 -->
-        <mapper resource="com/randy/note/example/mapper/UserMapper.xml"/>
+        <mapper resource="com/randy/note/mybatis/example/mapper/UserMapper.xml"/>
 
         <!-- 使用注解方式 -->
         <mapper class="com.randy.note.mybatis.example.dao.UserDaoAnno"/>
 
-        <mapper resource="com/randy/note/start/UserMapper.xml"/>
+        <mapper resource="com/randy/note/mybatis/start/UserMapper.xml"/>
 
-        <mapper resource="com/randy/note/start/UserMapperKey.xml"/>
+        <mapper resource="com/randy/note/mybatis/start/UserMapperKey.xml"/>
 
-        <mapper resource="com/randy/note/resultmap/BookMapper.xml"/>
+        <mapper resource="com/randy/note/mybatis/resultmap/BookMapper.xml"/>
 
-        <mapper resource="com/randy/note/start/UserMapperDynamic.xml"/>
+        <mapper resource="com/randy/note/mybatis/start/UserMapperDynamic.xml"/>
 
-        <mapper resource="com/randy/note/association/onetoone/UserMapper.xml"/>
-        <mapper resource="com/randy/note/association/onetoone/AccountMapper.xml"/>
+        <mapper resource="com/randy/note/mybatis/association/onetoone/UserMapper.xml"/>
+        <mapper resource="com/randy/note/mybatis/association/onetoone/AccountMapper.xml"/>
 
-        <mapper resource="com/randy/note/association/onetomany/UserMapper.xml"/>
+        <mapper resource="com/randy/note/mybatis/association/onetomany/UserMapper.xml"/>
 
-        <mapper resource="com/randy/note/association/manytomany/UserMapper.xml"/>
+        <mapper resource="com/randy/note/mybatis/association/manytomany/UserMapper.xml"/>
     </mappers>
 </configuration>

@@ -27,7 +27,7 @@ import java.io.InputStream;
  * Author: randy
  * Date: 2019/10/22 23:01
  */
-public class CacheTest {
+class CacheTest {
     /**
      * 一级缓存
      */  @Test
@@ -94,7 +94,7 @@ public class CacheTest {
     /**
      * 使用二级缓存配置
      * 二级缓存不受SqlSession对象的影响
-     * @throws IOException
+     * @throws IOException IO异常
      */
     @Test
     void test4() throws IOException {

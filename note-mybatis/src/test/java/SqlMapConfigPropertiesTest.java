@@ -12,7 +12,7 @@ import java.io.Reader;
  * Author: randy
  * Date: 2019/10/22 18:51
  */
-public class SqlMapConfigPropertiesTest {
+class SqlMapConfigPropertiesTest {
     @Test
     void test() throws IOException {
         Reader resourceAsReader = Resources.getResourceAsReader("./SqlMapConfigProperties.xml");

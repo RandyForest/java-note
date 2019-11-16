@@ -13,10 +13,10 @@ import java.io.InputStream;
  * Author: randy
  * Date: 2019/10/23 15:28
  */
-public class AliasTest {
+class AliasTest {
     /**
      * 测试类别名
-     * @throws IOException
+     * @throws IOException IO异常
      */
     @Test
     void test() throws IOException {
@@ -33,7 +33,7 @@ public class AliasTest {
 
     /**
      * 测试包别名
-     * @throws IOException
+     * @throws IOException IO异常
      */
     @Test
     void test2() throws IOException {

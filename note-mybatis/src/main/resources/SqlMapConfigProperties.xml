@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-<!-- 使用外部 .properties 文件-->
+    <!-- 使用外部 .properties 文件-->
     <properties resource="./db.properties"/>
 
     <!--  配置环境  -->
@@ -24,6 +24,6 @@
 
     <!--  指定注解源配置文件  -->
     <mappers>
-         <mapper resource="com/randy/note/start/UserMapper.xml"/>
+        <mapper resource="com/randy/note/mybatis/start/UserMapper.xml"/>
     </mappers>
 </configuration>

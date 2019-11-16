@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 命名空间，不需要真的写UserDao类 -->
-<mapper namespace="UserDao">
+<mapper namespace="com.randy.note.mybatis.start.UserDao">
     <!--
     查询一条数据
     id：可以理解为方法名

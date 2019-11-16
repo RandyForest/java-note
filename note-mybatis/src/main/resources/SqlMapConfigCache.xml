@@ -17,7 +17,7 @@
             <!-- 配置数据源，连接池  -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/test_schema"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/test"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root"/>
             </dataSource>
@@ -26,6 +26,6 @@
 
     <!--  指定注解源配置文件  -->
     <mappers>
-         <mapper resource="com/randy/note/cache/UserMapperCache.xml"/>
+         <mapper resource="com/randy/note/mybatis/cache/UserMapperCache.xml"/>
     </mappers>
 </configuration>
