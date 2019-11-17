@@ -9,17 +9,15 @@ import java.util.List;
  * Date: 2019/10/17 13:39
  */
 public class UserDaoImpl implements UserDao {
+    /**
+     * JDBC模板类，简化SQL操作，在Spring中配置
+     */
     private JdbcTemplate jdbcTemplate;
 
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;
     }
 
-    /**
-     * Spring中配置
-     *
-     * @param jdbcTemplate JDBC模板
-     */
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -128,8 +126,7 @@ public class UserDaoImpl implements UserDao {
         String sql = "select * from user";
         RowMapper<User> userRowMapper = new BeanPropertyRowMapper<>(User.class);
         ResultSetExtractor<List<User>> userRowMapperResultSetExtractor = new RowMapperResultSetExtractor<>(userRowMapper);
-        List<User> users = this.jdbcTemplate.query(sql, userRowMapperResultSetExtractor);
 
-        return users;
+        return this.jdbcTemplate.query(sql, userRowMapperResultSetExtractor);
     }
 }

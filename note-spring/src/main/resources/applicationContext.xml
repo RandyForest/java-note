@@ -11,21 +11,29 @@
     -->
     <bean id="myBean" class="com.randy.note.spring.start.MyBean"/>
 
+    <!--
+    注入
+    将userDao注入userService
+    有三种注入方法：
+    1.构造器注入（constructor-arg标签）
+    2.方法注入（property标签）
+    3.注解注入@Autowire
+    -->
     <bean id="userDao" class="com.randy.note.spring.start.UserDaoImpl"/>
 
     <!--
     注入对象到属性
     将上方定义的userDao注入到userService的属性中
     构造器注入
-    constructor 元素
+    constructor-arg 元素
     ref：在配置文件中定义的Bean的ID
-    value：直接给定值
-    name：变量名，形参名。以set方法为准。
+    value：直接给定值（基本数据类型与String类型的数据）
+    name：变量名，形参名。
     index：指定第几个形参
     type：指定参数类型
     方法参数注入
     property 元素
-    name：属性变量名
+    name：属性变量名，以set方法为准。
     ref：在配置文件中定义的Bean的ID
     -->
     <bean id="userService" class="com.randy.note.spring.start.UserServiceImpl">

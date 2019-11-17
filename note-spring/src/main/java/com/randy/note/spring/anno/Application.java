@@ -11,6 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
  * 多个包使用basePackages关键字指定多个包
  * basePackageClasses关键字指定多个类
  *
+ * 也可以用XML配置文件指定
+ * 使用 context:component-scan 标签的 base-package 属性指定要扫描的包
+ *
  * Author: randy
  * Date: 2019/11/6 20:11
  */

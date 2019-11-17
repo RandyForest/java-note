@@ -12,6 +12,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 必须提供userDao的设置方法
+     *
      * @param userDao 用户数据访问对象
      */
     public void setUserDao(UserDao userDao) {
