@@ -7,7 +7,7 @@ import java.sql.*;
  * Date: 2019/8/13 21:26
  */
 public class jdbc {
-    private static final String DB_NAME = "test_schema";
+    private static final String DB_NAME = "test";
     private static final String URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
