@@ -30,13 +30,24 @@
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
+    <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!-- 配置事务通知 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <!-- * 代表所有方法都启动事务 -->
+            <!--
+            配置在那些方法上用事务
+            * 代表所有方法都启动事务
+            propagation：传播行为，默认为：REQUIRED
+            isolation：隔离级别，默认为：DEFAULT
+            read-only：是否只读
+            timeout：超时时间
+            rollback-for：指定某异常回滚，默认所有异常都回滚
+            no-rollback-for：指定某异常不回滚
+            -->
             <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" read-only="false"/>
         </tx:attributes>
     </tx:advice>

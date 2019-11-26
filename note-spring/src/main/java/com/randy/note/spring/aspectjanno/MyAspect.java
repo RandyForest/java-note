@@ -13,14 +13,19 @@ import org.springframework.stereotype.Component;
  * Author: randy
  * Date: 2019/10/12 20:58
  */
-@Aspect
 @Component
+@Aspect
 public class MyAspect {
-    @Pointcut("execution(* com.randy.note.aspectjanno.*.*(..))")
+    /**
+     * 配置切入点
+     */
+    @Pointcut("execution(* com.randy.note.spring.aspectjanno.*.*(..))")
     private void pointcut(){}
 
     /**
      * 前置通知
+     *
+     * @param joinPoint 连接点
      */
     @Before("pointcut()")
     public void before(JoinPoint joinPoint) {
@@ -33,7 +38,7 @@ public class MyAspect {
     /**
      * 后置通知
      *
-     * @param joinPoint
+     * @param joinPoint 连接点
      */
     @After("pointcut()")
     public void after(JoinPoint joinPoint) {
@@ -51,9 +56,9 @@ public class MyAspect {
     /**
      * 环绕通知
      *
-     * @param proceedingJoinPoint
-     * @return
-     * @throws Throwable
+     * @param proceedingJoinPoint Spring提供的便捷处理代理的类
+     * @return 代理后的对象
+     * @throws Throwable 代理失败
      */
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
@@ -68,6 +73,9 @@ public class MyAspect {
 
     /**
      * 异常通知
+     *
+     * @param joinPoint 连接点
+     * @param throwable 抛出的异常
      */
     @AfterThrowing(value = "pointcut()",throwing = "throwable")
     public void afterThrowing(JoinPoint joinPoint, Throwable throwable){

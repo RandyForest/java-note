@@ -21,15 +21,10 @@ class DynamicAgentTest {
 
     @Test
     void test2(){
-        JdkProxy jdkProxy = new JdkProxy();
-        UserDao userDao = new UserDaoImpl();
-        jdkProxy.setObject(userDao);
-
-        ClassLoader classLoader = this.getClass().getClassLoader();
-        Class<?>[] interfaces = jdkProxy.getObject().getClass().getInterfaces();
-        UserDao userDaoProxy = (UserDao) Proxy.newProxyInstance(classLoader, interfaces, jdkProxy);
-
-        userDaoProxy.addUser();
-        userDaoProxy.removeUser();
+        double f=Float.MAX_VALUE*1.1;
+       long i= 2147483647+1;
+        System.out.println(Float.MAX_VALUE);
+        System.out.println(Double.MAX_VALUE);
+        System.out.println(f);
     }
 }

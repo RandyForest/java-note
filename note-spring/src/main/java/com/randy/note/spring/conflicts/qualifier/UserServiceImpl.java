@@ -23,6 +23,7 @@ public class UserServiceImpl implements UserService {
      * 如果存在两个实现类，则会存在歧义，报运行时错误
      * 当@Qualifier参数为 impl1 时，装载 UserDaoImpl 对象
      * 当@Qualifier参数为 userDaoImpl2 时，装载 UserDaoImpl2 对象
+     * 注释@Qualifier也可以用于形参上
      *
      * @param userDao 用户数据访问对象
      */
