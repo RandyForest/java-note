@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.randy.note.ssm.mapper.UserMapper">
-    <select id="query" parameterType="int" resultType="user">
+    <select id="query" parameterType="int" resultType="com.randy.note.ssm.model.User">
         select * from user where id=#{id}
     </select>
 </mapper>

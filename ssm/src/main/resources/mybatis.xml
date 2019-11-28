@@ -8,6 +8,6 @@
     </typeAliases>
 
     <mappers>
-        <!--<mapper resource="com/randy/note/ssm/mapper"-->
+        <mapper resource="com/randy/note/ssm/mapper/UserMapper.xml"/>
     </mappers>
 </configuration>
