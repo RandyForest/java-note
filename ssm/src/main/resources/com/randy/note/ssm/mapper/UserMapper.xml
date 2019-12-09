@@ -2,8 +2,12 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.randy.note.ssm.mapper.UserMapper">
+
+<!-- 命名空间要与接口一致 -->
+<mapper namespace="com.randy.note.ssm.dao.UserDao">
     <select id="query" parameterType="int" resultType="com.randy.note.ssm.model.User">
-        select * from user where id=#{id}
+        select *
+        from user
+        where id = #{id}
     </select>
 </mapper>
