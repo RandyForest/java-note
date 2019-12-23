@@ -48,21 +48,21 @@
     在 com.randy.note.ssm.dao.impl.UserDaoImpl 中实现 UserDao 接口
     获取该Bean就可以调用UserDao的方法
     -->
-    <bean id="userDao" class="com.randy.note.ssm.dao.impl.UserDaoImpl">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
+    <!--<bean id="userDao" class="com.randy.note.ssm.dao.impl.UserDaoImpl">-->
+    <!--    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+    <!--</bean>-->
 
     <!--
     第二种
     Mapper配置方法
     -->
-    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.randy.note.ssm.dao.UserDao"/>
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
+    <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+    <!--    <property name="mapperInterface" value="com.randy.note.ssm.dao.UserDao"/>-->
+    <!--    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+    <!--</bean>-->
 
     <!--
-    第三种
+    第三种（最佳 ）
     自动扫描Mapper文件
     -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
