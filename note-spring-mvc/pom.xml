@@ -70,6 +70,24 @@
             <artifactId>spring-context</artifactId>
             <version>5.2.2.RELEASE</version>
         </dependency>
+        <!-- spring-beans -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.2.2.RELEASE</version>
+        </dependency>
+        <!-- spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.2.2.RELEASE</version>
+        </dependency>
+        <!-- spring-aop -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>5.2.2.RELEASE</version>
+        </dependency>
         <!-- mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
@@ -99,6 +117,42 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>2.0.3</version>
+        </dependency>
+        <!-- jackson-core -->
+        <!--<dependency>-->
+        <!--    <groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--    <artifactId>jackson-core</artifactId>-->
+        <!--    <version>2.10.1</version>-->
+        <!--</dependency>-->
+        <!-- jackson-datatype-jdk8 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+        <!-- jackson-module-parameter-names -->
+        <!--<dependency>-->
+        <!--    <groupId>com.fasterxml.jackson.module</groupId>-->
+        <!--    <artifactId>jackson-module-parameter-names</artifactId>-->
+        <!--    <version>2.10.1</version>-->
+        <!--</dependency>-->
+        <!-- jackson-databind -->
+        <!--<dependency>-->
+        <!--    <groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--    <artifactId>jackson-databind</artifactId>-->
+        <!--    <version>2.10.1</version>-->
+        <!--</dependency>-->
+        <!-- jackson-datatype-jsr310 -->
+        <!--<dependency>-->
+        <!--    <groupId>com.fasterxml.jackson.datatype</groupId>-->
+        <!--    <artifactId>jackson-datatype-jsr310</artifactId>-->
+        <!--    <version>2.10.1</version>-->
+        <!--</dependency>-->
+        <!-- commons-fileupload -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.4</version>
         </dependency>
     </dependencies>
 

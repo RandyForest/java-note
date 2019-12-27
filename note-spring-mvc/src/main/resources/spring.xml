@@ -30,10 +30,43 @@
     </bean>
 
     <!-- 配置路径 /* 给 DefaultServletHttpRequestHandler 处理 -->
-    <mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
 
     <!-- 支持SpringMVC的注解 -->
     <!--<mvc:annotation-driven />-->
 
-    <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
+    <mvc:annotation-driven >
+        <!--<mvc:message-converters>-->
+            <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+                <!--<property name="objectMapper" ref="jackson2ObjectMapper"/>-->
+            <!--</bean>-->
+            <!--<bean class="org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter">-->
+            <!--    <property name="objectMapper" ref="xmlJackson2ObjectMapper"/>-->
+            <!--</bean>-->
+        <!--</mvc:message-converters>-->
+    </mvc:annotation-driven>
+
+    <!--<bean id="jackson2ObjectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">-->
+    <!--    <property name="indentOutput" value="true"/>-->
+    <!--    <property name="simpleDateFormat" value="yyyy MM dd"/>-->
+    <!--    <property name="modulesToInstall" value="com.fasterxml.jackson.module.paramnames.ParameterNamesModule"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="xmlJackson2ObjectMapper" parent="jackson2ObjectMapper">-->
+    <!--    <property name="createXmlMapper" value="true"/>-->
+    <!--</bean>-->
+
+    <!-- 配置文件传输 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="#{1024*1024}"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/interceptor/in"/>
+            <bean class="com.randy.note.springmvc.interceptor.MyInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
