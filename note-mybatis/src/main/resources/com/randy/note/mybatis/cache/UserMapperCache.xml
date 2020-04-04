@@ -5,13 +5,11 @@
 
 <!-- 命名空间，不需要真的写UserDao类 -->
 <mapper namespace="com.randy.note.mybatis.cache.UserDao">
-    <!-- 开启二级缓存 -->
+    <!-- 开启局部二级缓存，需要Bean实现序列化 -->
     <cache/>
     <!--
     查询一条数据
-    id：可以理解为方法名
-    resultType：返回结果的类型
-    parameterType：传入参数的类型
+    useCache：是否使用二级缓存，默认：true
     -->
     <select id="query" parameterType="int" resultType="com.randy.note.mybatis.cache.User">
         select *
@@ -27,7 +25,7 @@
         where name like #{likeName}
     </select>
 
-    <!-- 添加用户 -->
+    <!-- 添加用户，flushCache：清空一、二级缓存，默认：false -->
     <insert id="add" parameterType="com.randy.note.mybatis.cache.User">
         insert user (id, name, password, birthday, sex, address)
         values (#{id}, #{name}, #{password}, #{birthday}, #{sex}, #{address})

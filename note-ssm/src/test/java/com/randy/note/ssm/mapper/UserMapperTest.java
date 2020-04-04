@@ -2,8 +2,10 @@ package com.randy.note.ssm.mapper;
 
 import com.randy.note.ssm.dao.UserDao;
 import com.randy.note.ssm.model.User;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -11,6 +13,8 @@ import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -18,6 +22,25 @@ import java.util.List;
  * Date: 2019/11/16 13:07
  */
 class UserMapperTest {
+
+    @Test
+    void mybatis() throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        User user = sqlSession.selectOne("com.randy.note.ssm.dao.UserDao.query",1);
+        System.out.println(user);
+    }
+
+    @Test
+    void spring(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        UserDao userDao = applicationContext.getBean(UserDao.class);
+        User user = userDao.query(1);
+        System.out.println(user);
+    }
+
     @Test
     void testQuery(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");

@@ -4,7 +4,7 @@
 
 <configuration>
     <settings>
-        <!-- 开启二级缓存，也可以不设置，因为默认为true -->
+        <!-- 开启全局二级缓存，也可以不设置，因为默认为true -->
         <setting name="cacheEnabled" value="true"/>
     </settings>
 

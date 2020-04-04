@@ -5,7 +5,7 @@
 
 <!-- 命名空间要与接口一致 -->
 <mapper namespace="com.randy.note.ssm.dao.UserDao">
-    <select id="query" parameterType="int" resultType="com.randy.note.ssm.model.User">
+    <select id="query" parameterType="_int" resultType="com.randy.note.ssm.model.User">
         select *
         from user
         where id = #{id}

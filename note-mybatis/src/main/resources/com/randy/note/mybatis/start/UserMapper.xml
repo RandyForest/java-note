@@ -10,6 +10,9 @@
     id：可以理解为方法名
     resultType：返回结果的类型
     parameterType：传入参数的类型
+    使用 #{变量名} 来获取传入的参数，如果是单个参数，变量名可以随意命名
+    如果是多个参数，使用 #{参数索引} 来取值，如：#{0}
+    或者 #{param参数索引} 这种格式
     -->
     <select id="query" parameterType="int" resultType="com.randy.note.mybatis.start.User">
         select *

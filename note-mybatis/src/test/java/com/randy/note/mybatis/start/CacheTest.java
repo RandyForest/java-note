@@ -46,7 +46,7 @@ class CacheTest {
     }
 
     /**
-     * 一级缓存被提交时清空
+     * 一级缓存被提交或 clearCache() 时清空
      */
     @Test
     void test2() {
@@ -55,8 +55,10 @@ class CacheTest {
         User user1 = sqlSession.selectOne("com.randy.note.mybatis.start.UserDao.query", 1);
         System.out.println(user1);
 
-        // 提交，清缓存
-        sqlSession.commit();
+        // clearCache() 清缓存
+        sqlSession.clearCache();
+        // 或提交
+        // sqlSession.commit();
 
         // 第二次查询又用查询语句连接数据库
         User user2 = sqlSession.selectOne("com.randy.note.mybatis.start.UserDao.query", 1);

@@ -3,16 +3,23 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/tx
         https://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd
-        ">
+        http://mybatis.org/schema/mybatis-spring
+        http://mybatis.org/schema/mybatis-spring.xsd">
 
     <!-- 加载数据库配置 -->
     <context:property-placeholder location="classpath:db.properties"/>
+
+    <context:component-scan base-package="com.randy.note.ssm" use-default-filters="true">
+        <!-- 排除SpringMVC管理的包 -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!-- 配置数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -66,7 +73,12 @@
     自动扫描Mapper文件
     -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 要扫描接口的包，可以扫描子包-->
         <property name="basePackage" value="com.randy.note.ssm.dao"/>
     </bean>
+
+    <!-- 第四种 -->
+    <mybatis-spring:scan base-package="com.randy.note.ssm.dao"/>
+
 </beans>

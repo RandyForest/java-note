@@ -7,7 +7,10 @@
 
     </typeAliases>
 
+    <!-- 在 Spring 中使用 MapperScannerConfigurer 配置 -->
     <mappers>
-        <mapper resource="com/randy/note/ssm/mapper/UserMapper.xml"/>
+        <!--<package name="com.randy.note.ssm.dao"/>-->
+        <!--<mapper class="com.randy.note.ssm.dao.UserDao"/>-->
+        <!--<mapper resource="com/randy/note/ssm/dao/UserDao.xml"/>-->
     </mappers>
 </configuration>
