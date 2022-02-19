@@ -1,6 +1,4 @@
-package com.randy.note.base.observer;
-
-import java.text.MessageFormat;
+package com.randy.note.base.observer.base;
 
 public class CurrentConditionsDisplay implements Observer, Display {
     private float temperature;

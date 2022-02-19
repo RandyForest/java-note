@@ -1,4 +1,4 @@
-package com.randy.note.base.observer;
+package com.randy.note.base.observer.base;
 
 public interface Subject {
     void addObserver(Observer observer);

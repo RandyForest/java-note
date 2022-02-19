@@ -1,7 +1,6 @@
-package com.randy.note.base.observer;
+package com.randy.note.base.observer.base;
 
 import java.util.ArrayList;
-import java.util.Observable;
 
 public class WeatherData implements Subject {
     private float temperature;
